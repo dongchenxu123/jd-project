@@ -16,7 +16,8 @@
     "serve:dist": "node server.js --env=dist",
     "start": "node server.js --env=dev",
     "test": "karma start",
-    "test:watch": "karma start --autoWatch=true --singleRun=false"
+    "test:watch": "karma start --autoWatch=true --singleRun=false",
+    "build": "cross-env NODE_ENV=production PLATFORM=web webpack"
   },
   "repository": "",
   "keywords": [],
@@ -32,6 +33,7 @@
     "bower-webpack-plugin": "^0.1.9",
     "chai": "^3.2.0",
     "copyfiles": "^1.0.0",
+    "cross-env": "^3.2.3",
     "css-loader": "^0.23.0",
     "eslint": "^3.0.0",
     "eslint-loader": "^1.0.0",

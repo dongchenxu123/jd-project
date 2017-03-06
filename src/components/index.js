@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 var data=[1,2,3,4,5,6]
 class IndexComponent extends React.Component {
   componentDidMount () {
-  		console.log(this.props.loadTopicItem())
+  		//console.log(this.props.loadTopicItem())
   }
   render() {
     return (

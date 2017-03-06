@@ -16,15 +16,15 @@ let config = Object.assign({}, baseConfig, {
     'webpack/hot/only-dev-server',
     './src/index'
   ],
-  cache: true,
-  devtool: 'eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new BowerWebpackPlugin({
-      searchResolveModulesDirectories: false
+     new webpack.optimize.UglifyJsPlugin({
+      compress: process.env.NODE_ENV === 'production'
     })
   ],
+  cache: true,
+  devtool: 'eval-source-map',
   module: defaultSettings.getDefaultModules()
 });
 
@@ -38,12 +38,6 @@ config.module.loaders.push({
   )
 });
 
-config.globals = {
-  'process.env' : {
-    'NODE_ENV' : JSON.stringify(config.env)
-  },
-  'NODE_ENV'     : config.env,
-  '__DEBUG__'    : config.env === 'development'
-}
+
 module.exports = config;
 
